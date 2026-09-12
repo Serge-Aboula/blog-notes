@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 16px;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  text-align: center;
+  color: #222;
+}
+
+#error-message {
+  background-color: #fee2e2;
+  color: #991b1b;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+#note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#note-form input[type="text"],
+#note-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+#note-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.form-actions button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submit-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+#cancel-btn {
+  background-color: #e5e7eb;
+  color: #333;
+}
+
+.note-card {
+  background: white;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.note-card h3 {
+  margin: 0 0 8px 0;
+}
+
+.note-card p {
+  margin: 0 0 8px 0;
+  white-space: pre-wrap;
+}
+
+.note-card .note-date {
+  font-size: 0.85em;
+  color: #666;
+}
+
+.note-card .note-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.note-card .note-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
