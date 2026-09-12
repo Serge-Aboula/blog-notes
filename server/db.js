@@ -1,9 +1,11 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env'
+});
 const { createClient } = require('@libsql/client');
 
 const db = createClient({
   url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN
+  authToken: process.env.TURSO_AUTH_TOKEN // undefined en mode test, sans problème
 });
 
 async function initDb() {
