@@ -23,4 +23,6 @@ jobs:
         run: npm install
 
       - name: Lancer les tests
+        env:
+          TURSO_DATABASE_URL: file:./test.db
         run: npm test
