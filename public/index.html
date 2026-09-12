@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog / Notes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Mes Notes</h1>
+
+  <div id="error-message" style="display: none;"></div>
+
+  <form id="note-form">
+    <input type="hidden" id="note-id">
+    <input type="text" id="note-title" placeholder="Titre" required>
+    <textarea id="note-content" placeholder="Contenu..." required></textarea>
+    <div class="form-actions">
+      <button type="submit" id="submit-btn">Ajouter</button>
+      <button type="button" id="cancel-btn" style="display: none;">Annuler</button>
+    </div>
+  </form>
+
+  <div id="notes-list"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
