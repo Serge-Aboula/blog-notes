@@ -61,7 +61,7 @@ function renderNotes(notes) {
 
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = '🗑️ Supprimer';
-    deleteBtn.addEventListener('click', () => deleteNote(note.id));
+    deleteBtn.addEventListener('click', () => deleteNote(note.id, note.title));
 
     actions.appendChild(editBtn);
     actions.appendChild(deleteBtn);
@@ -118,7 +118,10 @@ form.addEventListener('submit', async (event) => {
   }
 });
 
-async function deleteNote(id) {
+async function deleteNote(id, title) {
+  const confirmed = confirm(`Supprimer la note "${title}" ? Cette action est irréversible.`);
+  if (!confirmed) return;
+
   try {
     clearError();
     const res = await fetch(`/api/notes/${id}`, { method: 'DELETE' });
