@@ -30,3 +30,18 @@ test('PUT /api/notes/:id sur un id inexistant renvoie 404', async () => {
   });
   assert.strictEqual(res.status, 404);
 });
+
+test('DELETE /api/notes/:id supprime une note (204)', async () => {
+  const created = await request(app).post('/api/notes').send({
+    title: 'Note à supprimer',
+    content: 'Contenu temporaire'
+  });
+  const id = created.body.id;
+
+  const res = await request(app).delete(`/api/notes/${id}`);
+  assert.strictEqual(res.status, 204);
+
+  const afterDelete = await request(app).get('/api/notes');
+  const stillExists = afterDelete.body.some(note => note.id === id);
+  assert.strictEqual(stillExists, false);
+});

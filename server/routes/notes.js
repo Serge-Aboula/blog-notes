@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
   }
 
   const result = await db.execute({
-    sql: 'INSERT INTO notes (title, content) VALUES (?, ?)',
+    sql: 'INSERT INTO notes (title, content, updated_at) VALUES (?, ?, CURRENT_TIMESTAMP)',
     args: [title, content]
   });
 
@@ -42,7 +42,7 @@ router.put('/:id', async (req, res) => {
   }
 
   await db.execute({
-    sql: 'UPDATE notes SET title = ?, content = ? WHERE id = ?',
+    sql: 'UPDATE notes SET title = ?, content = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?',
     args: [title, content, id]
   });
 
